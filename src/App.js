@@ -7,7 +7,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>这个是React的旅程</h1>
+        <h1>光屁股猪怂睿不要再搞搞震啦 
+          <span role="img" aria-label="sheep">🤪🤪</span>！！！！
+        </h1>
       </header>
     </div>
   );
