@@ -11,6 +11,7 @@ import ReactDOM from 'react-dom';
 // Learn more about service workers: https://bit.ly/CRA-PWA
 // serviceWorker.unregister();
 // const name = "猪怂睿";
+// const alert = window.alert("防止注入");
 const user = {
   firstName: 'Harper',
   lastName: 'Perez'
