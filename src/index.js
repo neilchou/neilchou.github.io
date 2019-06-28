@@ -10,7 +10,7 @@ import ReactDOM from 'react-dom';
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 // serviceWorker.unregister();
-const name = "猪怂睿";
+// const name = "猪怂睿";
 const user = {
   firstName: 'Harper',
   lastName: 'Perez'

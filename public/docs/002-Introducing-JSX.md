@@ -10,7 +10,7 @@ const element = <h1>Hello, world!</h1>;
 
 JSX会最终生产出（或者叫做渲染）React的“elements”。在下个章节我们在来讨论怎么将React中通过JSX定义的UI渲染到DOM中。
 
-## 为什么要选择JSX？
+## 为什么要选择JSX
 
 React认为渲染逻辑本质上与其他UI逻辑是耦合的：事件如何处理，状态如何随时间变化，以及数据如何准备显示。
 
