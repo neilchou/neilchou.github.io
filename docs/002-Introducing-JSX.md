@@ -53,3 +53,102 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+## JSX也是一个表达式
+
+编译之后，JSX表达式成为常规JavaScript函数调用并评估为JavaScript对象。
+
+这意味着您可以在`if`语句和`for`循环中使用`JSX`，将其分配给变量，接受它作为参数，并从函数返回它：
+
+```jsx
+function getGreeting(user) {
+  if (user) {
+    return <h1>Hello, {formatName(user)}!</h1>;
+  }
+  return <h1>Hello, Stranger.</h1>;
+}
+
+```
+
+## 在JSX中定义属性标签
+
+您可以使用引号将字符串文字指定为属性：
+
+```jsx
+const element = <div tabIndex="0"></div>;
+```
+
+您还可以使用花括号在属性中嵌入JavaScript表达式：
+
+```jsx
+const element = <img src={user.avatarUrl}></img>;
+```
+
+在属性中嵌入JavaScript表达式时，不要在花括号周围加上引号。您应该使用引号（对于字符串值）或花括号（对于表达式），但不能在同一属性中使用。
+
+> 警告：由于JSX更接近JavaScript而不是HTML，因此React DOM使用驼峰属性命名约定而不是HTML属性名称。例如，`class`在JSX中变为`className`，`tabindex`变为`tabIndex`。
+
+## Specifying Children with JSX
+
+如果标记为空，您可以使用`/>`立即关闭它，如XML：
+
+```jsx
+const element = <img src={user.avatarUrl} />;
+```
+
+JSX标签可能包含子项：
+
+```jsx
+const element = (
+  <div>
+    <h1>Hello!</h1>
+    <h2>Good to see you here.</h2>
+  </div>
+);
+```
+
+## JSX防止注入攻击
+
+```jsx
+const title = response.potentiallyMaliciousInput;
+// This is safe:
+const element = <h1>{title}</h1>;
+```
+
+默认情况下，React DOM在渲染之前会转义JSX中嵌入的任何值。因此，它确保您永远不会注入未在应用程序中明确写入的任何内容。在渲染之前，所有内容都会转换为字符串。这有助于防止XSS（跨站点脚本）攻击。
+
+## JSX代表对象
+
+Babel将JSX编译为`React.createElement（）`调用。
+
+这两个例子是相同的：
+
+```jsx
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+
+// 等价于
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+```
+
+React.createElement（）执行一些检查以帮助您编写无错误的代码，但实质上它创建了一个这样的对象：
+
+```jsx
+// Note: this structure is simplified
+const element = {
+  type: 'h1',
+  props: {
+    className: 'greeting',
+    children: 'Hello, world!'
+  }
+};
+```
+
+这些对象称为`“React元素”`。您可以将它们视为您希望在屏幕上看到的内容的描述。React读取这些对象并使用它们构建DOM并使其保持最新。

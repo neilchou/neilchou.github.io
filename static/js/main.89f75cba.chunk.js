@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],[,,,function(e,n,t){e.exports=t(4)},function(e,n,t){"use strict";t.r(n);var r=t(0),a=t.n(r),o=t(2),s=t.n(o),c=a.a.createElement("h1",null,"\u641e\u641e\u9707\uff0c",function(e){return e.firstName+""+e.lastName}({firstName:"\u732a",lastName:"\u6002\u777f"}));s.a.render(c,document.querySelector("#root"))}],[[3,1,2]]]);
