@@ -27,7 +27,7 @@ ReactDOM.render(
   document.querySelector('#root')
 );
 
-ReactDOM.render(
-  <h1>搞搞震，{name}</h1>,
-  document.querySelector('#root2')
-);
+// ReactDOM.render(
+//   <h1>搞搞震，{name}</h1>,
+//   document.querySelector('#root2')
+// );
