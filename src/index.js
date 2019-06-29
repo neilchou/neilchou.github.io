@@ -10,7 +10,7 @@ import ReactDOM from 'react-dom';
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 // serviceWorker.unregister();
-const name = "猪怂睿";
+// const name = "猪怂睿";
 // const alert = window.alert("防止注入");
 // const user = {
 //   firstName: '猪',
@@ -21,16 +21,18 @@ const name = "猪怂睿";
 // function formatName(user) {
 //   return user.firstName + '' + user.lastName;
 // };
+function Welcome(props) {
+  // console.log(props);
+  return <div>
+          <h1>{props.name}搞搞震</h1>
+          <h2>现在{new Date().toLocaleTimeString()}</h2>
+         </div>;
+}
+
 
 function tick() {
-  const element = (
-    <div>
-      <h1>猪怂睿搞搞震</h1>
-      <h2>现在 {new Date().toLocaleTimeString()}</h2>
-    </div>
-  );
   ReactDOM.render(
-    element,
+    <Welcome name="猪怂睿" />,
     document.querySelector('#root')
   );
 }
