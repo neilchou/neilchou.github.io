@@ -13,6 +13,7 @@ function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
 }
 ```
+
 此函数是一个有效的React组件，因为它接受单个`“props”`（代表属性）对象参数与​​数据并返回一个React元素。我们称这些组件为`“函数组件”`，因为它们实际上是JavaScript函数。
 
 您还可以使用ES6类来定义组件：
@@ -67,3 +68,32 @@ ReactDOM.render(
 4. React DOM有效地更新DOM以匹配`<h1> Hello，Sara </ h1>`。
 
 > 注意：始终使用大写字母启动组件名称。React将以小写字母开头的组件视为DOM标记。例如，`<div />`表示HTML `div`标记，但`<Welcome />`表示组件，并且要求`Welcome`必须有闭合`/>`标签。
+
+## 组合组件
+
+组件可以引用其输出中的其他组件。这使我们可以对任何细节级别使用相同的组件抽象。按钮，表单，对话框，屏幕：在React应用程序中，所有这些通常表示为组件。
+
+例如，我们可以创建一个多次呈现Welcome的App组件：
+
+```jsx
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+function App() {
+  return (
+    <div>
+      <Welcome name="Sara" />
+      <Welcome name="Cahal" />
+      <Welcome name="Edite" />
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+```
+
+通常，新的React应用程序在最顶层有一个App组件。但是，如果将React集成到现有应用程序中，则可以使用像Button这样的小组件自下而上开始逐步运行到视图层次结构的顶部。

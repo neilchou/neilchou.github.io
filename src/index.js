@@ -23,16 +23,33 @@ import ReactDOM from 'react-dom';
 // };
 function Welcome(props) {
   // console.log(props);
-  return <div>
-          <h1>{props.name}搞搞震</h1>
-          <h2>现在{new Date().toLocaleTimeString()}</h2>
-         </div>;
+  return (
+    <div>
+      <h1>{props.name}搞搞震</h1>
+      <h2>现在{new Date().toLocaleTimeString()}</h2>
+    </div>
+  );
 }
 
+function Hello(props) {
+  return <h1>Hello,{props.name}</h1>;
+}
+
+function App() {
+  return (
+    <div>
+      <Hello name="猪老三" />
+      <Hello name="光屁股猪怂睿" />
+    </div>
+  );
+}
 
 function tick() {
   ReactDOM.render(
-    <Welcome name="猪怂睿" />,
+    <div>
+      <Welcome name="猪怂睿" />
+      <App />
+    </div>,
     document.querySelector('#root')
   );
 }
