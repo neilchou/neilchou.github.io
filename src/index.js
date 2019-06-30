@@ -26,7 +26,6 @@ function Welcome(props) {
   return (
     <div>
       <h1>{props.name}搞搞震</h1>
-      <h2>现在{new Date().toLocaleTimeString()}</h2>
     </div>
   );
 }
@@ -44,17 +43,55 @@ function App() {
   );
 }
 
-function tick() {
-  ReactDOM.render(
-    <div>
-      <Welcome name="猪怂睿" />
-      <App />
-    </div>,
-    document.querySelector('#root')
-  );
+// 时钟组件
+// function Clock(props) {
+//   return (
+//     <div>
+//       <h1>现在是{props.date.toLocaleTimeString()}</h1>
+//     </div>
+//   );
+// }
+class Clock extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.thimerID);
+  }
+
+  // 时钟
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>现在是{this.state.date.toLocaleTimeString()}.</h1>
+      </div>
+    );
+  }
 }
 
-setInterval(tick, 1000);
+
+ReactDOM.render(
+  <div>
+    <Welcome name="猪怂睿" />
+    <App />
+    <Clock />
+  </div>,
+  document.querySelector('#root')
+);
+
 
 
 
