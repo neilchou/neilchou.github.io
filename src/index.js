@@ -51,6 +51,20 @@ function App() {
 //     </div>
 //   );
 // }
+
+function ActionLink() {
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+  }
+
+  return (
+    <a href="https://www.google.com.tw/" onClick={handleClick}>
+      Click me
+    </a>
+  );
+};
+
 class Clock extends React.Component {
 
   constructor(props) {
@@ -82,12 +96,38 @@ class Clock extends React.Component {
   }
 }
 
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isToggleOn: true };
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(state => ({
+      isToggleOn: !state.isToggleOn
+    }));
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
+    );
+  }
+}
+
 
 ReactDOM.render(
   <div>
     <Welcome name="猪怂睿" />
     <App />
     <Clock />
+    <ActionLink />
+    <Toggle />
   </div>,
   document.querySelector('#root')
 );
