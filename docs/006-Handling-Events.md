@@ -82,3 +82,47 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+在JSX回调中你必须要小心`this`的含义。在JavaScript中，默认情况下不会绑定类方法。如果您忘记绑定`this.handleClick`并将其传递给`onClick`，则在实际调用该函数时，`this`将是未定义的。
+
+这不是特定于React的行为;它是JavaScript中函数如何工作的一部分。通常，如果您在其后引用没有`（）`的方法，例如`onClick = {this.handleClick}`，则应该绑定该方法。
+
+如果调用`bind`会让你烦恼，有两种方法可以解决这个问题。如果您使用的是实验性公共类字段语法，则可以使用类字段正确绑定回调：
+
+```jsx
+// 直接用箭头函数定义事件方法
+class LoggingButton extends React.Component {
+  // This syntax ensures `this` is bound within handleClick.
+  // Warning: this is *experimental* syntax.
+  handleClick = () => {
+    console.log('this is:', this);
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        Click me
+      </button>
+    );
+  }
+}
+```
+
+如果您没有使用类字段语法，则可以在回调中使用箭头函数：
+
+```jsx
+class LoggingButton extends React.Component {
+  handleClick() {
+    console.log('this is:', this);
+  }
+
+  render() {
+    // This syntax ensures `this` is bound within handleClick
+    return (
+      <button onClick={(e) => this.handleClick(e)}>
+        Click me
+      </button>
+    );
+  }
+}
+```
