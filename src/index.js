@@ -120,6 +120,36 @@ class Toggle extends React.Component {
   }
 }
 
+class LoggingButton extends React.Component {
+  // This syntax ensures `this` is bound within handleClick.
+  // Warning: this is *experimental* syntax.
+  handleClick = () => {
+    console.log('this is:', this);
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        Click me
+      </button>
+    );
+  }
+}
+
+class LoggingButton2 extends React.Component {
+  handleClick() {
+    console.log('this is:', this);
+  }
+
+  render() {
+    // This syntax ensures `this` is bound within handleClick
+    return (
+      <button onClick={(e) => this.handleClick(e)}>
+        Click me
+      </button>
+    );
+  }
+}
 
 ReactDOM.render(
   <div>
@@ -128,6 +158,8 @@ ReactDOM.render(
     <Clock />
     <ActionLink />
     <Toggle />
+    <LoggingButton />
+    <LoggingButton2 />
   </div>,
   document.querySelector('#root')
 );
