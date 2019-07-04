@@ -11,7 +11,9 @@ import LoggingButton from './component/LoggingButton';
 import LoggingButton2 from './component/LoggingButton2';
 import LoginControl from './component/LoginControl';
 import Mailbox from './component/Mailbox';
+import Page from './component/Page';
 const messages = ['React', 'Re: React', 'Re:Re: React'];
+
 // import './index.css';
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
@@ -32,6 +34,7 @@ ReactDOM.render(
     <LoggingButton2 />
     <LoginControl />
     <Mailbox unreadMessages={messages} />
+    <Page />
   </div>,
   document.querySelector('#root')
 );

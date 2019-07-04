@@ -134,3 +134,87 @@ ReactDOM.render(
 ## 内联If-Else与条件运算符
 
 有条件地渲染元素内联的另一种方法是使用JavaScript `condition ? true : false.`
+
+在下面的示例中，我们使用它来有条件地渲染一小块文本。
+
+```jsx
+render() {
+  const isLoggedIn = this.state.isLoggedIn;
+  return (
+    <div>
+      The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.
+    </div>
+  );
+}
+```
+
+它也可以用于更大的表达式，尽管它不太明显发生了什么：
+
+```jsx
+render() {
+  const isLoggedIn = this.state.isLoggedIn;
+  return (
+    <div>
+      {isLoggedIn ? (
+        <LogoutButton onClick={this.handleLogoutClick} />
+      ) : (
+        <LoginButton onClick={this.handleLoginClick} />
+      )}
+    </div>
+  );
+}
+```
+
+就像在JavaScript中一样，您可以根据您和您的团队认为更具可读性的内容来选择合适的样式。还要记住，只要条件变得过于复杂，就可能是提取组件的好时机。
+
+## 防止组件渲染
+
+在极少数情况下，您可能希望组件隐藏自身，即使它是由另一个组件呈现的。要执行此操作，请返回`null`而不是其渲染输出。
+
+在下面的示例中，将根据名为`warn`的`prop`的值呈现`<WarningBanner />`。如果`prop`的值为`false`，则组件不会呈现：
+
+```jsx
+function WarningBanner(props) {
+  if (!props.warn) {
+    return null;
+  }
+
+  return (
+    <div className="warning">
+      Warning!
+    </div>
+  );
+}
+
+class Page extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {showWarning: true};
+    this.handleToggleClick = this.handleToggleClick.bind(this);
+  }
+
+  handleToggleClick() {
+    this.setState(state => ({
+      showWarning: !state.showWarning
+    }));
+  }
+
+  render() {
+    return (
+      <div>
+        <WarningBanner warn={this.state.showWarning} />
+        <button onClick={this.handleToggleClick}>
+          {this.state.showWarning ? 'Hide' : 'Show'}
+        </button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Page />,
+  document.getElementById('root')
+);
+```
+
+从组件的`render`方法返回`null`不会影响组件生命周期方法的触发。例如，仍将调用`componentDidUpdate`。
