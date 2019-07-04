@@ -1,3 +1,0 @@
-# 这个是个人的React项目
-
-这个是通过github的分支策略结合gh-pages将通过create-react-app开发打包好的public文件夹发布到master分支做githubpages。
