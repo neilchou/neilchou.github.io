@@ -10,6 +10,8 @@ import Toggle from './component/Toggle';
 import LoggingButton from './component/LoggingButton';
 import LoggingButton2 from './component/LoggingButton2';
 import LoginControl from './component/LoginControl';
+import Mailbox from './component/Mailbox';
+const messages = ['React', 'Re: React', 'Re:Re: React'];
 // import './index.css';
 // import App from './App';
 // import * as serviceWorker from './serviceWorker';
@@ -29,6 +31,7 @@ ReactDOM.render(
     <LoggingButton />
     <LoggingButton2 />
     <LoginControl />
+    <Mailbox unreadMessages={messages} />
   </div>,
   document.querySelector('#root')
 );

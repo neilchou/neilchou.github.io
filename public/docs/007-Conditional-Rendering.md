@@ -100,3 +100,37 @@ class LoginControl extends React.Component {
 ```
 
 虽然声明变量并使用if语句是有条件地渲染组件的好方法，但有时您可能希望使用更短的语法。有几种方法可以在JSX中内联条件，如下所述。
+
+## Inline If with Logical && Operator
+
+您可以通过将它们包装在花括号中来在JSX中嵌入任何表达式。这包括JavaScript逻辑&&运算符。它有条件地包括一个元素可以很方便：
+
+```jsx
+function Mailbox(props) {
+  const unreadMessages = props.unreadMessages;
+  return (
+    <div>
+      <h1>Hello!</h1>
+      {unreadMessages.length > 0 &&
+        <h2>
+          You have {unreadMessages.length} unread messages.
+        </h2>
+      }
+    </div>
+  );
+}
+
+const messages = ['React', 'Re: React', 'Re:Re: React'];
+ReactDOM.render(
+  <Mailbox unreadMessages={messages} />,
+  document.getElementById('root')
+);
+```
+
+它的工作原理是因为在JavaScript中，`true && expression`总是求值为表达式，而`false && expression`总是求值为`false`。
+
+因此，如果条件为真，则&&之后的元素将出现在输出中。如果是假，React将忽略并跳过它。
+
+## 内联If-Else与条件运算符
+
+有条件地渲染元素内联的另一种方法是使用JavaScript `condition ? true : false.`
