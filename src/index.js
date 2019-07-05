@@ -18,7 +18,7 @@ const messages = ['React', 'Re: React', 'Re:Re: React'];
 
 
 console.log("这个是入口文件");
-const numbers = [1, 2, 3, 4, 5];
+const numbers = [1, 2, 3, 4];
 const doubled = numbers.map((number) => number * 2);
 console.log(doubled);
 // import './index.css';
@@ -42,7 +42,7 @@ ReactDOM.render(
     <LoginControl />
     <Mailbox unreadMessages={messages} />
     <Page />
-    <ListItems />
+    <ListItems numbers={numbers} />
   </div>,
   document.querySelector('#root')
 );

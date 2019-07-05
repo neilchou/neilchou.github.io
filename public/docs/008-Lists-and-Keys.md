@@ -54,3 +54,32 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+
+## 基本列表组件
+
+通常，您将在组件内呈现列表。
+
+我们可以将前面的示例重构为一个接受数字数组并输出元素列表的组件。
+
+```jsx
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =>
+    <li>{number}</li>
+  );
+  return (
+    <ul>{listItems}</ul>
+  );
+}
+
+const numbers = [1, 2, 3, 4, 5];
+ReactDOM.render(
+  <NumberList numbers={numbers} />,
+  document.getElementById('root')
+);
+```
+
+运行此代码时，将向您发出警告，指出应为列表项提供密钥。`“key”`是在创建元素列表时需要包含的特殊字符串属性。我们将在下一节讨论它为什么重要。
+
+让我们为numbers.map（）中的列表项分配一个键，并修复缺少的键问题。
+

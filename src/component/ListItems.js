@@ -7,8 +7,8 @@ class ListItems extends React.Component {
   constructor(props) {
     super(props);
     this.state = { date: new Date() };
-    this.numbers = [1, 2, 3, 4, 5];
-    this.items = this.numbers.map((number) => <li>{number}</li>);
+    // this.numbers = [1, 2, 3, 4, 5];
+    this.items = props.numbers.map((number) => <li key={number.toString()}>{number}</li>);
   }
   render() {
     return (
