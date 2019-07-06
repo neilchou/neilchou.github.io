@@ -13,10 +13,9 @@ import LoginControl from './component/LoginControl';
 import Mailbox from './component/Mailbox';
 import Page from './component/Page';
 import ListItems from './component/ListItems';
+import Forms from './component/Forms';
 
 const messages = ['React', 'Re: React', 'Re:Re: React'];
-
-
 console.log("这个是入口文件");
 const numbers = [1, 2, 3];
 const doubled = numbers.map((number) => number * 2);
@@ -43,6 +42,7 @@ ReactDOM.render(
     <Mailbox unreadMessages={messages} />
     <Page />
     <ListItems numbers={numbers} />
+    <Forms />
   </div>,
   document.querySelector('#root')
 );
