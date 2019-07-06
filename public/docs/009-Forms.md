@@ -58,3 +58,14 @@ handleChange(event) {
 }
 ```
 
+## The textarea Tag
+
+在HTML中，`<textarea>`元素通过其子元素定义其文本：
+
+```jsx
+<textarea>
+  Hello there, this is some text in a text area
+</textarea>
+```
+
+在React中，`<textarea>`使用值属性。这样，使用`<textarea>`的表单可以与使用单行输入的表单非常相似地编写：

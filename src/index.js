@@ -14,6 +14,7 @@ import Mailbox from './component/Mailbox';
 import Page from './component/Page';
 import ListItems from './component/ListItems';
 import Forms from './component/Forms';
+import EssayForm from './component/EssayForm';
 
 const messages = ['React', 'Re: React', 'Re:Re: React'];
 console.log("这个是入口文件");
@@ -43,6 +44,7 @@ ReactDOM.render(
     <Page />
     <ListItems numbers={numbers} />
     <Forms />
+    <EssayForm />
   </div>,
   document.querySelector('#root')
 );
