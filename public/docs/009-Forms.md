@@ -165,3 +165,13 @@ export default class FlavorForm extends React.Component {
 ```jsx
 <select multiple={true} value={['B', 'C']}>
 ```
+
+## The file input Tag
+
+在HTML中，`<input type =“file”>`允许用户从其设备存储中选择一个或多个文件，以便上传到服务器或通过File API通过JavaScript进行操作。
+
+```html
+<input type="file" />
+```
+
+因为它的值是只读的，所以它是React中一个不受控制的组件。它将在文档后面与其他不受控制的组件一起讨论。
