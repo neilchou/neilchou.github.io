@@ -69,3 +69,54 @@ handleChange(event) {
 ```
 
 在React中，`<textarea>`使用值属性。这样，使用`<textarea>`的表单可以与使用单行输入的表单非常相似地编写：
+
+```jsx
+import React from 'react';
+
+export default class EssayForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 'Please write an essay about your favorite DOM element.'
+    };
+
+  }
+
+  handleChange = (event) => {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit = (event) => {
+    alert('An essay was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Essay:
+          <textarea value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    )
+  }
+}
+```
+
+## The select Tag
+
+在HTML中，`<select>`创建一个下拉列表。例如，此HTML创建一个下拉列表：
+
+```html
+<select>
+  <option value="grapefruit">Grapefruit</option>
+  <option value="lime">Lime</option>
+  <option selected value="coconut">Coconut</option>
+  <option value="mango">Mango</option>
+</select>
+```
+
+请注意，由于所选属性，最初选择了Coconut选项。React，而不是使用此选定属性，使用根`selected`标记上的值属性。这在受控组件中更方便，因为您只需要在一个位置更新它。例如：

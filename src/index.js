@@ -15,6 +15,7 @@ import Page from './component/Page';
 import ListItems from './component/ListItems';
 import Forms from './component/Forms';
 import EssayForm from './component/EssayForm';
+import FlavorForm from './component/FlavorForm';
 
 const messages = ['React', 'Re: React', 'Re:Re: React'];
 console.log("这个是入口文件");
@@ -45,6 +46,7 @@ ReactDOM.render(
     <ListItems numbers={numbers} />
     <Forms />
     <EssayForm />
+    <FlavorForm />
   </div>,
   document.querySelector('#root')
 );
