@@ -120,3 +120,48 @@ export default class EssayForm extends React.Component {
 ```
 
 请注意，由于所选属性，最初选择了Coconut选项。React，而不是使用此选定属性，使用根`selected`标记上的值属性。这在受控组件中更方便，因为您只需要在一个位置更新它。例如：
+
+```jsx
+import React from 'react'
+
+export default class FlavorForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: 'coconut' };
+  }
+
+  handleChange = (event) => {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit = (event) => {
+    alert('Your favorite flavor is: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Pick your favorite flavor:
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option>
+          </select>
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+```
+
+总的来说，这使得`<input type =“text”>`，`<textarea>`和`<select>`都非常相似 - 它们都接受一个可用于实现受控组件的值属性。
+
+> 注意您可以将数组传递给value属性，允许您在select标记中选择多个选项：
+
+```jsx
+<select multiple={true} value={['B', 'C']}>
+```
