@@ -69,3 +69,109 @@ handleChange(event) {
 ```
 
 在React中，`<textarea>`使用值属性。这样，使用`<textarea>`的表单可以与使用单行输入的表单非常相似地编写：
+
+```jsx
+import React from 'react';
+
+export default class EssayForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 'Please write an essay about your favorite DOM element.'
+    };
+
+  }
+
+  handleChange = (event) => {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit = (event) => {
+    alert('An essay was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Essay:
+          <textarea value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    )
+  }
+}
+```
+
+## The select Tag
+
+在HTML中，`<select>`创建一个下拉列表。例如，此HTML创建一个下拉列表：
+
+```html
+<select>
+  <option value="grapefruit">Grapefruit</option>
+  <option value="lime">Lime</option>
+  <option selected value="coconut">Coconut</option>
+  <option value="mango">Mango</option>
+</select>
+```
+
+请注意，由于所选属性，最初选择了Coconut选项。React，而不是使用此选定属性，使用根`selected`标记上的值属性。这在受控组件中更方便，因为您只需要在一个位置更新它。例如：
+
+```jsx
+import React from 'react'
+
+export default class FlavorForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: 'coconut' };
+  }
+
+  handleChange = (event) => {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit = (event) => {
+    alert('Your favorite flavor is: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Pick your favorite flavor:
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option>
+          </select>
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
+```
+
+总的来说，这使得`<input type =“text”>`，`<textarea>`和`<select>`都非常相似 - 它们都接受一个可用于实现受控组件的值属性。
+
+> 注意您可以将数组传递给value属性，允许您在select标记中选择多个选项：
+
+```jsx
+<select multiple={true} value={['B', 'C']}>
+```
+
+## The file input Tag
+
+在HTML中，`<input type =“file”>`允许用户从其设备存储中选择一个或多个文件，以便上传到服务器或通过File API通过JavaScript进行操作。
+
+```html
+<input type="file" />
+```
+
+因为它的值是只读的，所以它是React中一个不受控制的组件。它将在文档后面与其他不受控制的组件一起讨论。
