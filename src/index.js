@@ -17,6 +17,7 @@ import Forms from './component/Forms';
 import EssayForm from './component/EssayForm';
 import FlavorForm from './component/FlavorForm';
 import Reservation from './component/Reservation';
+import Calculator from './component/Calculator';
 
 const messages = ['React', 'Re: React', 'Re:Re: React'];
 console.log("这个是入口文件");
@@ -49,6 +50,7 @@ ReactDOM.render(
     <EssayForm />
     <FlavorForm />
     <Reservation />
+    <Calculator />
   </div>,
   document.querySelector('#root')
 );
