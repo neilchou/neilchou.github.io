@@ -90,3 +90,7 @@ class Calculator extends React.Component {
   }
 }
 ```
+
+我们现在有两个输入，但是当您在其中一个输入温度时，另一个不会更新。这与我们的要求相矛盾：我们希望让它们保持同步。
+
+我们也无法从计算器中显示`BoilingVerdict`。计算器不知道当前温度，因为它隐藏在`TemperatureInput`内。
