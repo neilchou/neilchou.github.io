@@ -126,3 +126,5 @@ function tryConvert(temperature, convert) {
 ```
 
 例如，`tryConvert（'abc'，toCelsius`）返回一个空字符串，`tryConvert（'10 .22'，toFahrenheit）`返回`'50.396'`。
+
+## 提升状态
