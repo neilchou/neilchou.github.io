@@ -128,3 +128,30 @@ function tryConvert(temperature, convert) {
 例如，`tryConvert（'abc'，toCelsius`）返回一个空字符串，`tryConvert（'10 .22'，toFahrenheit）`返回`'50.396'`。
 
 ## 提升状态
+
+目前，两个`TemperatureInput`组件都独立地将其值保持在本地状态：
+
+```jsx
+class TemperatureInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {temperature: ''};
+  }
+
+  handleChange(e) {
+    this.setState({temperature: e.target.value});
+  }
+
+  render() {
+    const temperature = this.state.temperature;
+    // ...  
+```
+
+但是，我们希望这两个输入彼此同步。当我们更新摄氏度输入时，华氏度输入应反映转换后的温度，反之亦然。
+
+在React中，共享状态是通过将其移动到需要它的组件的最近共同祖先来完成的。这称为“提升状态”。我们将从`TemperatureInput`中删除本地状态，然后将其移动到`Calculator`中。
+
+如果计算器拥有共享状态，它将成为两个输入中当前温度的“真实来源”。它可以指示它们两者具有彼此一致的值。由于两个`TemperatureInput`组件的`props`都来自同一个父计算器组件，因此这两个输入将始终保持同步。
+
+首先，我们将使用`TemperatureInput`组件中的`this.props.temperature`替换`this.state.temperature`。现在，让我们假装`this.props.temperature`已经存在，虽然我们将来需要从计算器传递它：
