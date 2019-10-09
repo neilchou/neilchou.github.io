@@ -1,6 +1,5 @@
 @charset 'utf-8';
 $times: 0,0.2,0.4,0.6,0.8,1.0;
-$times-index: 0;
 .loading-bar {
   width: 100%;
   min-height: 100vh;
@@ -18,8 +17,8 @@ $times-index: 0;
     // animation: animate 1.5s linear infinite;
 
     @each $time in $times {
-      $times-index: $times-index + 1;
-      &:nth-child(#{$times-index}) {
+      $i: index($times, $time);
+      &:nth-child(#{$i}) {
         animation-delay: #{$time}s;
       }
     }
