@@ -28,15 +28,7 @@ import HoverEffects from './component/HoverEffects';
 // const numbers = [1, 2, 3];
 // const doubled = numbers.map((number) => number * 2);
 // console.log(doubled);
-// import './index.css';
-// import App from './App';
-// import * as serviceWorker from './serviceWorker';
 
-// ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 ReactDOM.render(
   // <div>
     
