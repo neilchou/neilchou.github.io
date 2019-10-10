@@ -81,11 +81,13 @@ body {
       &:nth-child(1)
       ,&:nth-child(1)::before,
       &:nth-child(1)::after {
+        color: #59a6f3;
         background: linear-gradient(45deg, #ff0057, #e64a19);
       }
       &:nth-child(2),
       &:nth-child(2)::before,
       &:nth-child(2)::after {
+        color: rgb(252, 9, 9);
         background: linear-gradient(45deg, #89ff00, #00bcd4);
       }
       &:nth-child(3),
@@ -96,6 +98,7 @@ body {
       &:nth-child(4),
       &:nth-child(4)::before,
       &:nth-child(4)::after {
+        color: rgb(150, 150, 252);
         background: linear-gradient(45deg, #ff0000, #ffc107);
       }
     }
