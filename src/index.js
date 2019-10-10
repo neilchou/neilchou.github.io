@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 // import ButtonEffects from './component/ButtonEffects';
-import LoadingBar from './component/LoadingBar'
+// import LoadingBar from './component/LoadingBar';
+import HoverEffects from './component/HoverEffects';
 
 // 组件
 // import Welcome from './component/Welcome';
@@ -57,6 +58,7 @@ ReactDOM.render(
   //   <Calculator />
   // </div>,
   // <ButtonEffects />,
-  <LoadingBar />,
+  // <LoadingBar />,
+  <HoverEffects />,
   document.querySelector('#root')
 );
