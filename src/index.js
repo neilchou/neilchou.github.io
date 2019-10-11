@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 // import ButtonEffects from './component/ButtonEffects';
 // import LoadingBar from './component/LoadingBar';
-import HoverEffects from './component/HoverEffects';
+// import HoverEffects from './component/HoverEffects';
+import CheckboxEffects from './component/CheckboxEffects';
 
 // 组件
 // import Welcome from './component/Welcome';
@@ -51,6 +52,7 @@ ReactDOM.render(
   // </div>,
   // <ButtonEffects />,
   // <LoadingBar />,
-  <HoverEffects />,
+  // <HoverEffects />,
+  <CheckboxEffects />,
   document.querySelector('#root')
 );
