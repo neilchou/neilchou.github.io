@@ -1,6 +1,7 @@
 .vscode
 node_modules
 build
+static
 package-lock.json
 yarn.lock
 

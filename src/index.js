@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import './style/index.scss';
 // import ButtonEffects from './component/ButtonEffects';
 // import LoadingBar from './component/LoadingBar';
 // import HoverEffects from './component/HoverEffects';
 // import CheckboxEffects from './component/CheckboxEffects';
-import HoverEffects2 from './component/HoverEffects2';
+// import HoverEffects2 from './component/HoverEffects2';
+import CheckboxButtonEffects from './component/CheckboxButtonEffects';
 
 // 组件
 // import Welcome from './component/Welcome';
@@ -55,6 +56,6 @@ ReactDOM.render(
   // <LoadingBar />,
   // <HoverEffects />,
   // <CheckboxEffects />,
-  <HoverEffects2 />,
+  <CheckboxButtonEffects />,
   document.querySelector('#root')
 );
