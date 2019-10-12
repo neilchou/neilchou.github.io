@@ -4,8 +4,8 @@ import '../style/CheckboxButtonEffects.scss';
 export default class CheckboxButtonEffects extends Component {
   render() {
     return (
-      <div>
-        
+      <div className="check-box-button">
+        <input type="checkbox" name="box-button" id="button"/>
       </div>
     )
   }
