@@ -6,7 +6,8 @@ import './style/index.scss';
 // import HoverEffects from './component/HoverEffects';
 // import CheckboxEffects from './component/CheckboxEffects';
 // import HoverEffects2 from './component/HoverEffects2';
-import CheckboxButtonEffects from './component/CheckboxButtonEffects';
+// import CheckboxButtonEffects from './component/CheckboxButtonEffects';
+import LoadingRing from './component/LoadingRing';
 
 // 组件
 // import Welcome from './component/Welcome';
@@ -56,6 +57,7 @@ ReactDOM.render(
   // <LoadingBar />,
   // <HoverEffects />,
   // <CheckboxEffects />,
-  <CheckboxButtonEffects />,
+  // <CheckboxButtonEffects />,
+  <LoadingRing />,
   document.querySelector('#root')
 );
